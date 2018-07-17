@@ -6,7 +6,7 @@ cc_test(name="yaml_test",
 cc_test(name="gtest_test",
         size="small",
         srcs=["gtest_test.cc"],
-        deps=["@gtest//:gtest_main"])
+        deps=["@com_google_googletest//:gtest_main"])
 
 cc_test(name="unity_test",
         size="small",
@@ -46,5 +46,10 @@ cc_test(name="keccak_test",
 cc_test(name="libcuckoo_test",
         srcs=["libcuckoo_test.cc"],
         deps=["@libcuckoo//:libcuckoo"], )
+
+cc_test(name="rocksdb_test",
+        srcs = ["rocksdb_test.cc"],
+        deps = ["@rocksdb//:rocksdb"],
+        linkopts = ["-lrocksdb", "-lbz2", "-lpthread","-lsnappy","-lz"])
 
 cc_test(name="cJSON_test", srcs=["cJSON_test.c"], deps=["@cJSON//:cJSON"], )

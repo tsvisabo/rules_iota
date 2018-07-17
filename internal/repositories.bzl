@@ -197,6 +197,43 @@ def load_nlohmann():
         "https://github.com/th0br0/json/archive/8a0fda26060a45c1dd6e85c71db20730b6b830ff.zip",
         strip_prefix="json-8a0fda26060a45c1dd6e85c71db20730b6b830ff", )
 
+def load_rocksdb():
+    native.new_http_archive(
+        name="rocksdb",
+        build_file="@rules_iota//:build/BUILD.rocksdb",
+        sha256=
+        "4bf2077c66cf9b89eee86616e80c2c269c4629739de61e87e9fe63d66900da40",
+        url=
+        "https://github.com/facebook/rocksdb/archive/5a59ce41495ecb887276df95ce05e0a357ee9d62.zip",
+        strip_prefix="rocksdb-5a59ce41495ecb887276df95ce05e0a357ee9d62", )
+
+def load_zlib():
+    native.new_http_archive(
+        name = "zlib",
+        url = "https://github.com/madler/zlib/archive/v1.2.11.tar.gz",
+        strip_prefix = "zlib-1.2.11",
+        sha256 = "629380c90a77b964d896ed37163f5c3a34f6e6d897311f1df2a7016355c45eff",
+        build_file = "@rules_iota//:build/BUILD.zlib",
+    )
+
+def load_jemalloc():
+      native.new_http_archive(
+          name = "jemalloc",
+          url = "https://github.com/jemalloc/jemalloc/archive/4.5.0.tar.gz",
+          strip_prefix = "jemalloc-4.5.0",
+          sha256 = "e885b65b95426945655ee91a30f563c9679770c92946bcdd0795f6b78c06c221",
+          build_file = "@rules_iota//:build/BUILD.jemalloc",
+
+      )
+
+def load_snappy():
+      native.new_http_archive(
+          name = "snappy",
+          url = "https://github.com/google/snappy/archive/ed3b7b2.tar.gz",
+          strip_prefix = "snappy-ed3b7b242bd24de2ca6750c73f64bee5b7505944",
+          sha256 = "88a644b224f54edcd57d01074c2d6fd6858888e915c21344b8622c133c35a337",
+          build_file = "@rules_iota//:build/BUILD.snappy",
+      )
 
 def iota_cpp_repositories():
     load_fmtlib()
@@ -219,3 +256,7 @@ def iota_cpp_repositories():
     load_cjson()
     load_optional_lite()
     load_nlohmann()
+    load_rocksdb()
+    load_zlib()
+    load_jemalloc()
+    load_snappy()
