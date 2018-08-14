@@ -234,6 +234,14 @@ def load_uthash():
         "0c40f3cb9a1e746f128bfb71df55932286ac0a1ccdeb7fe883df78bd3c41414f",
         build_file="@rules_iota//:build/BUILD.uthash")
 
+def load_iotalib_cpp():
+    native.new_http_archive(
+      name = "com_iota_lib_cpp",
+      build_file = "@rules_iota//:build/BUILD.iota_lib_cpp",
+      sha256 = "607fd2976829a126785f26c264761e9e53d9dd37bf82584ed26bd03f74aac788",
+      url = "https://github.com/th0br0/iota.lib.cpp/archive/master.zip",
+      strip_prefix = "iota.lib.cpp-master")
+
 def iota_cpp_repositories():
     load_fmtlib()
     load_cppzmq()
@@ -259,3 +267,4 @@ def iota_cpp_repositories():
     load_sqlite3()
     load_logger()
     load_uthash()
+    load_iotalib_cpp()

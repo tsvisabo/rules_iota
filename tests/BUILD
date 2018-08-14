@@ -101,3 +101,9 @@ cc_test(
     srcs = ["uthash_test.c"],
     deps = ["@com_github_uthash//:uthash"],
 )
+
+cc_test(
+    name = "iota_lib_cpp_test",
+    srcs = ["iota_lib_cpp.cc"],
+    deps = ["@com_iota_lib_cpp//:iota_lib_cpp"],
+)
