@@ -284,6 +284,10 @@ boost_library(
         ":type",
         ":visit_each",
     ],
+
+    hdrs = [
+            "boost/bind/bind.hpp",
+    ],
 )
 
 boost_library(
